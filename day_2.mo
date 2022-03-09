@@ -102,19 +102,7 @@ actor {
     return a;
   };
 
-
-  public func sum_of_array(userArray : [Nat]) : async Nat {
-    var sum = 0;
-    if(userArray.size() == 0){
-      return 0;
-    } else {
-      for (value in userArray.vals()){
-        sum += value;
-      };
-    };
-   return sum;
-  };
-
+  // 9
   public func size_in_bytes(t: Text) : async Nat {
     let ans : Blob = Text.encodeUtf8(t);
     var blob_array : [Nat8] = Blob.toArray(ans);
@@ -123,5 +111,10 @@ actor {
         sum += Nat8.toNat(value);
     };
     return sum;
-  }
+  };
+
+  public func bubble_sort(n : [Nat]) : async [Nat]{
+    
+  };
+
 };
