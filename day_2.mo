@@ -6,6 +6,7 @@ import Char "mo:base/Char";
 import Nat32 "mo:base/Nat32";
 import Array "mo:base/Array";
 import Blob "mo:base/Blob";
+import Iter "mo:base/Iter";
 
 actor {
 
@@ -113,8 +114,29 @@ actor {
     return sum;
   };
 
+  // got from day_1 solutions
+  private func _swap(array : [Nat], i : Nat, j : Nat) : [Nat] {
+    // Transform our immutable array into a mutable one so we can modify values.
+    let array_mutable = Array.thaw<Nat>(array);
+    let tmp = array[i];
+    array[i] := array[j];
+    array[j] := tmp;
+    // Transform our mutable array into an immutable array.
+    return(Array.freeze<Nat>(array));
+  };
+
+
   public func bubble_sort(n : [Nat]) : async [Nat]{
-    
+    var sorted = n;
+    let size = n.size();
+    for(i in Iter.range(0, size -1)){
+      for(j in Iter.range(0, size -2)){
+          if(n[j] > n[j+1]){
+            sorted := _swap(n, n[j], n[j+1]);
+          };
+      };
+    };
+    return sorted;
   };
 
 };
