@@ -1,6 +1,9 @@
 import Weed "weed";
+import Animal "animal"
 
 actor {
+
+    // 1
     public type Weed = Weed.Weed;
     public func fun() : async Weed {
         let bubba_kush : Weed = {
@@ -10,4 +13,5 @@ actor {
         return bubba_kush;
     };
 
+    public type Animal = Animal.Animal;
 }
