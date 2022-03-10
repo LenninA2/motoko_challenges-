@@ -122,5 +122,13 @@ actor{
         return Array.map<Nat, Nat>(array, f);
     };
 
+    //9
+    public func increase_by_index(array: [Nat]) : async [Nat] {
+        let add_by_index = func(n: Nat, m :Nat) : Nat {
+            return n+m;   
+        };
+        return Array.mapEntries<Nat, Nat>(array, add_by_index);
+    }
+
 
 };
