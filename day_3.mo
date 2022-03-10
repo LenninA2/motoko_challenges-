@@ -103,6 +103,14 @@ actor{
     };
 
     //7
+    public func sum_of_array(array: [Nat]) : async Nat {
+        let sum = func(n: Nat, m: Nat) : Nat {
+            return n+m;
+        };
+        return Array.foldRight(array, 0, sum);
+    };
+
+    //8
     public func squared_array(array: [Nat] ) : async [Nat] {
         let f = func(n : Nat) : Nat{
             switch(n){
