@@ -128,7 +128,17 @@ actor{
             return n+m;   
         };
         return Array.mapEntries<Nat, Nat>(array, add_by_index);
-    }
+    };
+
+    //10
+    public func contains<A>(array: [A], a : A, f : (A,A) -> Bool): async Bool {
+        for(i in Iter.range(0, array.size() -1)){
+            if(f(array[i], a)){
+                return true;
+            };
+        };
+    return false;
+  };
 
 
 };
